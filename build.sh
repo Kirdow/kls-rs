@@ -5,6 +5,7 @@ set -e
 echo "] cargo build"
 cargo build
 
-echo "] cp ./target/debug/kls ./kls"
-cp ./target/debug/kls ./kls
-
+if [ ! -f ./kls ]; then
+    echo "] ln -s ./target/debug/kls ./kls"
+    ln -s ./target/debug/kls ./kls
+fi
